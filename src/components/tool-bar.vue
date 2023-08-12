@@ -19,22 +19,26 @@ export default {
       AntaresViewer
     </div>
     <q-separator vertical inset dark color="grey-1" class="q-ml-sm q-mr-lg" />
-    <q-btn
-      flat
-      rounded
+    <q-tabs
+      v-model="tab"
+      inline-label
+      shrink
       no-caps
-      class="q-ml-md text-h5 text-bold"
-      :label="$t('home')"
-      @click="reroute_when_clicked('index_page')"
-    />
-    <q-btn
-      flat
-      rounded
-      no-caps
-      class="q-ml-md text-h5 text-bold"
-      :label="$t('about')"
-      @click="reroute_when_clicked('about_page')"
-    />
+      active-bg-color="bg-primary"
+      indicator-color="white"
+    >
+      <q-route-tab
+        icon="home"
+        :label="$t('home')"
+        :to="{ name: 'index_page' }"
+        exact
+      />
+      <q-route-tab
+        icon="info"
+        :label="$t('about')"
+        :to="{ name: 'about_page' }"
+      />
+    </q-tabs>
     <q-btn
       flat
       rounded
